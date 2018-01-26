@@ -1,0 +1,8 @@
+E:\c#_test\偏振控制器\偏振控制器\偏振控制器\bin\Debug\偏振控制器.exe
+E:\c#_test\偏振控制器\偏振控制器\偏振控制器\bin\Debug\偏振控制器.pdb
+E:\c#_test\偏振控制器\偏振控制器\偏振控制器\obj\x86\Debug\偏振控制器.Form1.resources
+E:\c#_test\偏振控制器\偏振控制器\偏振控制器\obj\x86\Debug\偏振控制器.Properties.Resources.resources
+E:\c#_test\偏振控制器\偏振控制器\偏振控制器\obj\x86\Debug\偏振控制器.csproj.GenerateResource.Cache
+E:\c#_test\偏振控制器\偏振控制器\偏振控制器\obj\x86\Debug\偏振控制器.exe
+E:\c#_test\偏振控制器\偏振控制器\偏振控制器\obj\x86\Debug\偏振控制器.pdb
+E:\c#_test\偏振控制器\偏振控制器\偏振控制器\obj\x86\Debug\偏振控制器.csprojResolveAssemblyReference.cache
