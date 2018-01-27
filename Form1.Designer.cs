@@ -57,6 +57,7 @@ namespace 偏振控制器
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxSpeed = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -175,6 +176,7 @@ namespace 偏振控制器
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(56, 21);
             this.textBoxCount.TabIndex = 13;
+            this.textBoxCount.Text = "0";
             // 
             // label5
             // 
@@ -202,11 +204,21 @@ namespace 偏振控制器
             this.textBoxSpeed.TabIndex = 16;
             this.textBoxSpeed.Text = "500";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 12);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "移动";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 281);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxSpeed);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -255,6 +267,7 @@ namespace 偏振控制器
         private Label label5;
         private Label label6;
         private TextBox textBoxSpeed;
+        private Label label3;
     }
 }
 

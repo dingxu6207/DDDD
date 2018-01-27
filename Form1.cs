@@ -69,6 +69,8 @@ namespace 偏振控制器
                     if (strRec[2] == 'V')
                         this.textBoxSpeed.Text = strRec.Substring(3, r - 5);
 
+                    this.label3.Text = this.textBoxCount.Text + "/16";
+
                     right.Enabled = true;
                 }
                 catch
