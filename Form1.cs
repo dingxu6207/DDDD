@@ -139,6 +139,7 @@ namespace 偏振控制器
             catch
             {
                 MessageBox.Show("监听尚未开始，关闭无效!");
+                this.right.Enabled = true;
             }
         }
 
