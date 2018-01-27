@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Text;
+using System.Timers; 
 
 namespace 偏振控制器
 {
@@ -18,7 +19,8 @@ namespace 偏振控制器
         {
             InitializeComponent();
             this.lbState.Items.Clear();
-                       
+
+            //this.textBoxTime.Text = DateTime.Now.ToLongTimeString().ToString(); 
             this.textBoxIP.Text = GetIpAddress();
             this.textBoxPort.Text = "8080";
         }
@@ -27,6 +29,7 @@ namespace 偏振控制器
         {
             string hostName = Dns.GetHostName();   //获取本机名
             IPHostEntry localhost = Dns.GetHostByName(hostName);    //方法已过期，可以获取IPv4的地址
+   
             //IPHostEntry localhost = Dns.GetHostEntry(hostName);   //获取IPv6地址
             IPAddress localaddr = localhost.AddressList[0];
 
@@ -173,6 +176,11 @@ namespace 偏振控制器
         private void rtbAccept_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.label7.Text = DateTime.Now.ToLongTimeString().ToString(); 
         }
 
     }

@@ -40,6 +40,7 @@ namespace 偏振控制器
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,13 +59,15 @@ namespace 偏振控制器
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxSpeed = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 36);
+            this.label1.Location = new System.Drawing.Point(13, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 0;
@@ -81,7 +84,7 @@ namespace 偏振控制器
             // 
             // textBoxIP
             // 
-            this.textBoxIP.Location = new System.Drawing.Point(83, 33);
+            this.textBoxIP.Location = new System.Drawing.Point(83, 39);
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.Size = new System.Drawing.Size(100, 21);
             this.textBoxIP.TabIndex = 2;
@@ -89,7 +92,7 @@ namespace 偏振控制器
             // 
             // textBoxPort
             // 
-            this.textBoxPort.Location = new System.Drawing.Point(83, 66);
+            this.textBoxPort.Location = new System.Drawing.Point(83, 69);
             this.textBoxPort.Name = "textBoxPort";
             this.textBoxPort.Size = new System.Drawing.Size(100, 21);
             this.textBoxPort.TabIndex = 3;
@@ -213,11 +216,27 @@ namespace 偏振控制器
             this.label3.TabIndex = 17;
             this.label3.Text = "移动";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "时间";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 281);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxSpeed);
             this.Controls.Add(this.label6);
@@ -268,6 +287,8 @@ namespace 偏振控制器
         private Label label6;
         private TextBox textBoxSpeed;
         private Label label3;
+        private Label label7;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
