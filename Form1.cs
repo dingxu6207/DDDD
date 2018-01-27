@@ -164,10 +164,9 @@ namespace 偏振控制器
 
         private void textBox1Speed_TextChanged(object sender, EventArgs e)
         {
-            string strSpeed = "#";            
-            string strGetSpeed = this.textBox1Speed.Text.ToString();
-            string strHead = strSpeed.Insert(0, strGetSpeed);
-            string strEnd = strHead.Insert(0, ":FV");
+                        
+            string strGetSpeed = this.textBox1Speed.Text.ToString();           
+            string strEnd = ":FV" + strGetSpeed + "#";
             try
             {
                 byte[] buffer = Encoding.Default.GetBytes(strEnd);
