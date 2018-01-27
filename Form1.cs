@@ -26,14 +26,19 @@ namespace 偏振控制器
         }
 
         private string GetIpAddress()
-        {
-            string hostName = Dns.GetHostName();   //获取本机名
-            IPHostEntry localhost = Dns.GetHostByName(hostName);    //方法已过期，可以获取IPv4的地址
-   
-            //IPHostEntry localhost = Dns.GetHostEntry(hostName);   //获取IPv6地址
-            IPAddress localaddr = localhost.AddressList[0];
+        {       
+            string AddressIP = string.Empty;
+            foreach (IPAddress _IPAddress in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
+            {
+                if (_IPAddress.AddressFamily.ToString() == "InterNetwork")
+                {
+                    AddressIP = _IPAddress.ToString();
+                }
+            }
 
-            return localaddr.ToString();
+            return AddressIP;
+
+
         }
 
         private void btnStartListen_Click(object sender, EventArgs e)
@@ -124,7 +129,7 @@ namespace 偏振控制器
 
         private void right_Click(object sender, EventArgs e)
         {
-            right.Enabled = false;
+            this.right.Enabled = false;
             string cmdst = ":F+#";
             try
             {                
