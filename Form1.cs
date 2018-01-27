@@ -18,9 +18,19 @@ namespace 偏振控制器
         {
             InitializeComponent();
             this.lbState.Items.Clear();
-            
-            this.textBoxIP.Text = "192.168.1.3";
+                       
+            this.textBoxIP.Text = GetIpAddress();
             this.textBoxPort.Text = "8080";
+        }
+
+        private string GetIpAddress()
+        {
+            string hostName = Dns.GetHostName();   //获取本机名
+            IPHostEntry localhost = Dns.GetHostByName(hostName);    //方法已过期，可以获取IPv4的地址
+            //IPHostEntry localhost = Dns.GetHostEntry(hostName);   //获取IPv6地址
+            IPAddress localaddr = localhost.AddressList[0];
+
+            return localaddr.ToString();
         }
 
         private void btnStartListen_Click(object sender, EventArgs e)
