@@ -64,8 +64,13 @@ namespace 偏振控制器
 
         private void AcceptMessage()
         {
-
-            newSocket = socket.Accept();
+            try
+            {
+                newSocket = socket.Accept();
+            }
+            catch 
+            { 
+            }
 
             //显示客户IP和端口号
             this.lbState.Items.Add("与客户 " + newSocket.RemoteEndPoint.ToString() + " 建立连接");
@@ -107,6 +112,7 @@ namespace 偏振控制器
            
             this.btnStartListen.Enabled = true;
             this.right.Enabled = true;
+          
             try
             {
                 socket.Shutdown(SocketShutdown.Both);
@@ -121,14 +127,13 @@ namespace 偏振控制器
 
             catch
             {
+
                 socket.Close();
-                if (newSocket.Connected)
-                {
-                    newSocket.Close();
-                    thread.Abort();
-                }
-               
+                //newSocket.Close();
+                thread.Abort();
+                              
             }
+            
         }
 
         private void right_Click(object sender, EventArgs e)
@@ -178,6 +183,7 @@ namespace 偏振控制器
             }
             catch
             {
+                socket.Close();
                 MessageBox.Show("监听尚未开始，关闭无效!");
             }
         }
