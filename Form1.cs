@@ -52,20 +52,23 @@ namespace 偏振控制器
 
             //监听客户端连接
             socket.Listen(10);
-            newSocket = socket.Accept();
-
-            //显示客户IP和端口号
-            this.lbState.Items.Add("与客户 " + newSocket.RemoteEndPoint.ToString() + " 建立连接");
+            
 
             //创建一个线程接收客户信息
             Control.CheckForIllegalCrossThreadCalls = false;//Added by ZXM on May 20,2010
 
             thread = new Thread(new ThreadStart(AcceptMessage));
+            thread.IsBackground = true;
             thread.Start();
         }
 
         private void AcceptMessage()
         {
+
+            newSocket = socket.Accept();
+
+            //显示客户IP和端口号
+            this.lbState.Items.Add("与客户 " + newSocket.RemoteEndPoint.ToString() + " 建立连接");
 
             byte[] buffer = new byte[1024];
             while (true)
@@ -103,6 +106,7 @@ namespace 偏振控制器
         {
            
             this.btnStartListen.Enabled = true;
+            this.right.Enabled = true;
             try
             {
                 socket.Shutdown(SocketShutdown.Both);
@@ -123,7 +127,7 @@ namespace 偏振控制器
                     newSocket.Close();
                     thread.Abort();
                 }
-
+               
             }
         }
 
@@ -186,6 +190,22 @@ namespace 偏振控制器
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.label7.Text = DateTime.Now.ToLongTimeString().ToString(); 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                socket.Shutdown(SocketShutdown.Both);
+                socket.Close();
+                if (newSocket.Connected)
+                {
+                    newSocket.Close();
+                    thread.Abort();
+                }
+            }
+            catch
+            { }
         }
 
     }
